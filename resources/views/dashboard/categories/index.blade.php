@@ -70,7 +70,7 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{$category->name}}</td>
                                     <td>{{$category->products->count()}}</td>
-                                    <td><a href="{{ route('products.index', ['category_id' => $category->id]) }}" class="btn btn-primary btn-sm">@lang('site.products')</a> </td>
+                                    <td><a href="{{ route('products.index', ['category_id' => $category->id]) }}" class="btn btn-primary btn-sm">@lang('site.photos')</a> </td>
                                     <td>{{$category->notes}}</td>
                                     <td>
                                         {{--Edit category--}}

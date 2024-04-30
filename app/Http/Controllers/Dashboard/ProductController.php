@@ -65,52 +65,37 @@ class ProductController extends Controller
     {
         //dd($request->all());
 
-        //validation on Category Name if Exist
-        if (Product::where('name->ar', $request->name_ar)->orwhere('name->en', $request->name)->exists()) {
-
-            return redirect()->back()->withErrors(__('message.Exist'));
-        } // End Of Validation IF
-
         // validation For Required Fields
         $request->validate([
-            'name' => 'required',
-            'name_ar' =>'required',
-            'purchase_price' => 'required',
-            'sale_price' => 'required',
-            'stock' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Adjust the validation rules as needed
+
 
         ]); // End of Validation
 
-        $request_data = $request->all();
-
-        //dd($request_data);
 
         // Prepare The Request Image Size & Save It
-        if ($request->image) {
-            Image::make($request->image)->resize(226, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path('uploads/products_img/' . $request->image->hashName()), 80, 'png');
+        if ($request->file('file')) {
+            $image = $request->file('file');
+            $image_name = $request->category_id . '_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/products_img/'), $image_name);
+        } else {
+            $image_name = 'default.png';
 
-            $request_data['image'] = $request->image->hashName();
-        } // End of IF
-        //dd($request_data['image']);
+        }// End of IF
+        // dd($image_name);
 
-        $product = new Product();
-        //dd($request_data);
-        $product->name = ['en' => $request_data['name'], 'ar' => $request_data['name_ar']];
-        $product->description = ['en' => $request_data['description'], 'ar' => $request_data['description_ar']];
-        $product->image = $request_data['image'];
-        $product->purchase_price = $request_data['purchase_price'];
-        $product->sale_price = $request_data['sale_price'];
-        $product->stock = $request_data['stock'];
-        $product->category_id = $request_data['category_id'];
-        $product->save();
+        // Save the file name to the database
+        Product::create([
+            'name' => $image_name,
+            'category_id' => $request->category_id,
+        ]);
 
+        // return response()->json(['success' => $image_name]);
 
         session()->flash('success', __('site.added_successfully'));
-
         return redirect()->route('products.index');
+
     }  // End of Store
 
 

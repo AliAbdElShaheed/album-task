@@ -6,20 +6,20 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.products')
-                <small>all products starts here {{$products->total()}}</small>
+            <h1>@lang('site.photos')
+                <small>all photos starts here {{$products->total()}}</small>
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard.index')}}"> <i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
                 </li>
-                <li class="active"> @lang('site.products')</li>
+                <li class="active"> @lang('site.photos')</li>
             </ol>
 
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">@lang('site.products_list')</h3>
+                    <h3 class="card-title">@lang('site.photos_list')</h3>
 
                     {{-- The Search Form--}}
                     <form action="{{route('products.index')}}" method="get">
@@ -32,7 +32,7 @@
                             {{-- Categories Sort Field--}}
                             <div class="col-md-4 ">
                                 <select name = "category_id" class="form-control">
-                                    <option value="">@lang('site.all_categories')</option>
+                                    <option value="">@lang('site.all_albums')</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ request()->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
@@ -44,10 +44,10 @@
 
                                 @if(auth()->user()->hasPermission('products_create'))
                                     <a href="{{route('product.add')}}" class="btn btn-primary btn-sm"><i
-                                            class="fa fa-plus-circle"> @lang('site.add_new_product') </i></a>
+                                            class="fa fa-plus-circle"> @lang('site.add_new_photo') </i></a>
                                 @else
                                     <a href="#" class="btn btn-primary btn-sm disabled"><i
-                                            class="fa fa-plus-circle"> @lang('site.add_new_product') </i></a>
+                                            class="fa fa-plus-circle"> @lang('site.add_new_photo') </i></a>
 
                                 @endif
 
@@ -67,12 +67,6 @@
                             <tr>
                                 <th style="width: 10px">#</th>
                                 <th>@lang('site.name')</th>
-                                <th>@lang('site.description')</th>
-                                <th>@lang('site.image')</th>
-                                <th>@lang('site.purchase_price')</th>
-                                <th>@lang('site.sale_price')</th>
-                                <th>@lang('site.profit_percent') %</th>
-                                <th>@lang('site.stock')</th>
                                 <th>@lang('site.category')</th>
                                 <th style="width: 180px">@lang('site.actions')</th>
                             </tr>
@@ -82,12 +76,6 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{$product->name}}</td>
-                                    <td>{!! $product->description !!}</td>
-                                    <td><img src="{{ $product->image_path }}" alt="Product Photo" class="img-thumbnail" style="height: 50px;"></td>
-                                    <td>{{$product->purchase_price}}</td>
-                                    <td>{{$product->sale_price}}</td>
-                                    <td>{{$product->profit_percent}} %</td>
-                                    <td>{{$product->stock}}</td>
                                     <td>{{$product->category->name}}</td>
                                     <td>
                                         {{--Edit product--}}

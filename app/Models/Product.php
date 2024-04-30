@@ -11,22 +11,10 @@ class Product extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use HasTranslations;
-
-
-    public $translatable = [
-        'name',
-        'description',
-    ];
 
     protected $fillable = [
         'category_id',
         'name',
-        'description',
-        'image',
-        'purchase_price',
-        'sale_price',
-        'stock',
     ];
 
 
@@ -36,7 +24,7 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     } // End of Category Relationship
 
-    protected $appends = ['image_path', 'profit_percent'];
+    protected $appends = ['image_path'];
 
 
     // Get The Image Path To Show It in The Product Index Page
@@ -45,13 +33,5 @@ class Product extends Model
         return asset('uploads/products_img/' . $this->image);
     } // End of Get Image Path
 
-
-    // Get The Profit Percentage
-    public function getProfitPercentAttribute()
-    {
-        $profit = $this->sale_price - $this->purchase_price;
-        $profit_percent = $profit * 100 / $this->purchase_price;
-        return number_format($profit_percent, 2);
-    } // End of Get The Profit Percentage
 
 } // End of Model
