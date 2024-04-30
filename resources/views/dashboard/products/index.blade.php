@@ -68,6 +68,7 @@
                                 <th style="width: 10px">#</th>
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.category')</th>
+                                <th>@lang('site.image')</th>
                                 <th style="width: 180px">@lang('site.actions')</th>
                             </tr>
                             </thead>
@@ -77,9 +78,11 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->category->name}}</td>
+                                    <td><img src="{{ $product->image_path }}" alt="Photo" class="img-thumbnail"
+                                             style="height: 50px;"></td>
                                     <td>
                                         {{--Edit product--}}
-                                        @if(auth()->user()->hasPermission('products_update'))
+                                        {{--@if(auth()->user()->hasPermission('products_update'))
                                             <a href="{{route('product.edit', ['id'=>$product->id])}}"
                                                class="btn btn-sm btn-info"><i class="fa fa-edit"></i>@lang('site.edit')
                                             </a>
@@ -87,7 +90,7 @@
                                             <a href="#"
                                                class="btn btn-sm btn-info disabled"><i
                                                     class="fa fa-edit"></i>@lang('site.edit')</a>
-                                        @endif
+                                        @endif--}}
 
 
 

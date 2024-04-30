@@ -30,7 +30,7 @@ class Product extends Model
     // Get The Image Path To Show It in The Product Index Page
     public function getImagePathAttribute()
     {
-        return asset('uploads/products_img/' . $this->image);
+        return asset('uploads/products_img/' . $this->name);
     } // End of Get Image Path
 
 
