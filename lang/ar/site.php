@@ -82,6 +82,8 @@ return [
     'category' => 'الألبوم',
     'show_photos' => 'عرض الصور',
     'created_at' => 'تم اضافته',
+    'album_and_photos_deleted_successfully' => 'تم حذف الألبوم والصور التى بداخله بنجاح',
+    'album_deleted_photos_moved_successfully' => 'تم حذف الألبوم ونقل الصور التى بداخله بنجاح',
 
     'photos' => 'الصور',
     'photos_list' => 'معرض الصور',

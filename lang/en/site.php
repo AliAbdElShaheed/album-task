@@ -70,6 +70,8 @@ return [
     'related_photos' => 'Related Photos',
     'show_photos' => 'Show Photos',
     'created_at' => 'Created At',
+    'album_and_photos_deleted_successfully' => 'Album and Photos Deleted Successfully',
+    'album_deleted_photos_moved_successfully' => 'Album Deleted and Photos Moved Successfully',
 
 
     'photos' => 'Photos',

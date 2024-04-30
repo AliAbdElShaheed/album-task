@@ -56,6 +56,7 @@ Route::group(
                 Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
                 Route::post('/user/update/{id}', [CategoryController::class, 'update'])->name('category.update');
                 Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+                Route::get('/category/del/{id}', [CategoryController::class, 'destroyWithPhotos'])->name('categories.destroy');
             }); // End of Categories Routes
 
 
