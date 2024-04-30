@@ -6,15 +6,15 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.categories')
-                <small>all categories starts here</small>
+            <h1>@lang('site.albums')
+                <small>all albums starts here</small>
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard.index')}}"> <i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
                 </li>
-                <li><a href="{{route('categories.index')}}"> @lang('site.categories')</a></li>
-                <li class="active"> @lang('site.add_category')</li>
+                <li><a href="{{route('categories.index')}}"> @lang('site.albums')</a></li>
+                <li class="active"> @lang('site.add_album')</li>
             </ol>
 
             <section class="content">
@@ -25,7 +25,7 @@
                             <div class="card card-primary">
 
                                 <div class="card-header">
-                                    <h3 class="card-title">@lang('site.add_new_category')</h3>
+                                    <h3 class="card-title">@lang('site.add_new_album')</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 @include('partials._errors')

@@ -6,20 +6,20 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.categories')
-                <small>all categories starts here {{$categories->total()}}</small>
+            <h1>@lang('site.albums')
+                <small>all albums starts here {{$categories->total()}}</small>
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard.index')}}"> <i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
                 </li>
-                <li class="active"> @lang('site.categories')</li>
+                <li class="active"> @lang('site.albums')</li>
             </ol>
 
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">@lang('site.categories_list')</h3>
+                    <h3 class="card-title">@lang('site.albums_list')</h3>
 
                     {{-- The Search Form--}}
                     <form action="{{route('categories.index')}}" method="get">
@@ -35,10 +35,10 @@
 
                                 @if(auth()->user()->hasPermission('categories_create'))
                                     <a href="{{route('category.add')}}" class="btn btn-primary btn-sm"><i
-                                            class="fa fa-plus-circle"> @lang('site.add_new_category') </i></a>
+                                            class="fa fa-plus-circle"> @lang('site.add_new_album') </i></a>
                                 @else
                                     <a href="#" class="btn btn-primary btn-sm disabled"><i
-                                            class="fa fa-plus-circle"> @lang('site.add_new_category') </i></a>
+                                            class="fa fa-plus-circle"> @lang('site.add_new_album') </i></a>
 
                                 @endif
 
@@ -58,8 +58,8 @@
                             <tr>
                                 <th style="width: 10px">#</th>
                                 <th>@lang('site.name')</th>
-                                <th>@lang('site.products_count')</th>
-                                <th>@lang('site.related_products')</th>
+                                <th>@lang('site.photos_count')</th>
+                                <th>@lang('site.related_photos')</th>
                                 <th>@lang('site.notes')</th>
                                 <th style="width: 180px">@lang('site.actions')</th>
                             </tr>

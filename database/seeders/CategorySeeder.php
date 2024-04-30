@@ -21,28 +21,28 @@ class CategorySeeder extends Seeder
         $categories =
             [
                 [
-                    'en'=>'Category One',
-                    'ar'=>'القسم الأول'
+                    'en'=>'Album One',
+                    'ar'=>'الألبوم الأول'
                 ],
                 [
-                    'en'=>'Category Two',
-                    'ar'=>'القسم الثانى'
+                    'en'=>'Album Two',
+                    'ar'=>'الألبوم الثانى'
                 ],
                 [
-                    'en'=>'Category Three',
-                    'ar'=>'القسم 3'
+                    'en'=>'Album Three',
+                    'ar'=>'الألبوم 3'
                 ],
                 [
-                    'en'=>'Category 4',
-                    'ar'=>'القسم الرابع'
+                    'en'=>'Album 4',
+                    'ar'=>'الألبوم الرابع'
                 ],
                 [
-                    'en'=>'Category Five',
-                    'ar'=>'القسم الخامس'
+                    'en'=>'Album Five',
+                    'ar'=>'الألبوم الخامس'
                 ],
                 [
-                    'en'=>'Category 6',
-                    'ar'=>'القسم السادس'
+                    'en'=>'Album 6',
+                    'ar'=>'الألبوم السادس'
                 ],
              ];
 
