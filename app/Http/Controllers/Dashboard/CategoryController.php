@@ -138,11 +138,11 @@ class CategoryController extends Controller
                 $category->delete();
                 session()->flash('success', __('site.album_and_photos_deleted_successfully'));
             } else if ($action === 'move_photos') {
-                dd(request()->get('target_album_id'));
+                // dd(request()->all());
+                // dd(request()->get('target_album_id'));
                 // Move photos to another album
                 // Get the target album ID from user input
                 $targetAlbumId = request()->get('target_album_id');
-                //dd($targetAlbum);
                 // Check if the target album exists
                 $targetAlbum = Category::find($targetAlbumId);
                 if ($targetAlbum) {

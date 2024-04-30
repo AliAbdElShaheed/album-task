@@ -29,23 +29,26 @@
                         @method('GET')
 
                         <div class="col-md-6 ">
+                            <h3>Delete</h3>
                             <button type="submit" name="action" value="delete_photos" class="btn btn-danger">Delete
                                 Photos and Album
                             </button>
                         </div>
+
                         <div class="col-md-6 ">
-                            <span class="col-md-6">
-                                <button type="submit" name="action" value="move_photos" class="btn btn-info">Move Photos to
-                                    Another Album
-                                </button>
-                            </span>
-                            <span class="col-md-6">
-                                <select name="category_id" class="form-control" name="target_album_id">
+                            <h3>Move</h3>
+                            <span class="col-md-7">
+                                <select class="form-control" name="target_album_id">
                                     @foreach($categories as $category)
                                         <option
                                             value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
+                            </span>
+                            <span class="col-md-5">
+                                <button type="submit" name="action" value="move_photos" class="btn btn-info">Move Photos to
+                                    Another Album
+                                </button>
                             </span>
                         </div>
 
